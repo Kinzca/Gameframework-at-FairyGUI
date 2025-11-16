@@ -950,19 +950,20 @@ namespace FairyGUI
 #if UNITY_5_3_OR_NEWER
             textEditor.text = string.Empty;
 #else
-            textEditor.content = new GUIContent(string.Empty);
+    textEditor.content = new GUIContent(string.Empty);
 #endif
-            textEditor.multiline = !textField.singleLine;
+            textEditor.isMultiline = !textField.singleLine;  // Replace 'multiline' with 'isMultiline'
             textEditor.Paste();
 #if UNITY_5_3_OR_NEWER
             string value = textEditor.text;
 #else
-            string value = textEditor.content.text;
+    string value = textEditor.content.text;
 #endif
             if (!string.IsNullOrEmpty(value))
                 ReplaceSelection(value);
 #endif
         }
+
 
         void CreateCaret()
         {
